@@ -29,6 +29,9 @@ public class CICDCont {
     } else if (sw == 2) {
       msg = "/cide workflow 테스트";
       log.info(msg);
+    } else {
+      msg = "해당하는 sw 변수의 값이 없습니다.";
+      log.info(msg);
     }
    
     return "<h3>" + msg + "</h3>";
