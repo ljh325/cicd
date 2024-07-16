@@ -14,9 +14,9 @@ public class CICDCont {
   // http://localhost:9091/cicd?sw=1
   // http://localhost:9091/cicd?sw=2
   @GetMapping("/cicd")
-  public String cicd(@RequestParam(name="sw", defaultValue = "1") Integer sw) {
+  public String cicd(@RequestParam(name = "sw", defaultValue = "1") Integer sw) {
     String msg = "";
-    
+
     if (sw == -1) {
       msg = "/cide 호출됨, error 로그";
       log.error(msg);
@@ -29,11 +29,17 @@ public class CICDCont {
     } else if (sw == 2) {
       msg = "/cide workflow 테스트";
       log.info(msg);
+    } else if (sw == 3) {
+      msg = "/cide 1차 테스트";
+      log.info(msg);
+    } else if (sw == 4) {
+      msg = "/cide 2차 테스트";
+      log.info(msg);
     } else {
       msg = "해당하는 sw 변수의 값이 없습니다...";
       log.info(msg);
     }
-   
+
     return "<h3>" + msg + "</h3>";
   }
 }
